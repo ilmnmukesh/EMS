@@ -1,0 +1,649 @@
+{
+    "compiler": {
+        "version": "0.8.7+commit.e28d00a7"
+    },
+    "language": "Solidity",
+    "output": {
+        "abi": [
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "branches",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "br_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "br_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "courselists",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "cl_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "c_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "f_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "sems",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "courses",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "c_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "c_code",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "c_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "c_qp_code",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "c_credits",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "br_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "br_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "createBranch",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "c_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "c_code",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "c_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "c_qp_code",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "c_credits",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "createCourse",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "cl_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "c_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "f_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "sems",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "createCourselist",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "dep_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_hod",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "createDepartment",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "f_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "f_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "f_designation",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "createFaculty",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "reg_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "reg_value",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "createRegulation",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "std_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_dob",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_addr",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_email",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_contact",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "br_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "reg_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "pwd",
+                        "type": "string"
+                    }
+                ],
+                "name": "createStudent",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "std_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "cl_id",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "createStudentEnrollment",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "departments",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "dep_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_hod",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "faculties",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "f_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "f_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "enum Designation",
+                        "name": "f_designation",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "std_id",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "login",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "pwd",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "regulations",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "reg_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "reg_value",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "studentenrollments",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "std_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "cl_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "enum SemsGrade",
+                        "name": "grade",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "external_mark",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "internal_mark",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "attendence",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "att1",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "att2",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "att3",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "int_1",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "int_2",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "int_3",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "students",
+                "outputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "std_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_dob",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_addr",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_email",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "std_contact",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "dep_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "br_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "reg_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "pwd",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ],
+        "devdoc": {
+            "kind": "dev",
+            "methods": {},
+            "version": 1
+        },
+        "userdoc": {
+            "kind": "user",
+            "methods": {},
+            "version": 1
+        }
+    },
+    "settings": {
+        "compilationTarget": {
+            "contracts/EMS/index.sol": "EMS"
+        },
+        "evmVersion": "london",
+        "libraries": {},
+        "metadata": {
+            "bytecodeHash": "ipfs"
+        },
+        "optimizer": {
+            "enabled": false,
+            "runs": 200
+        },
+        "remappings": []
+    },
+    "sources": {
+        "contracts/EMS/index.sol": {
+            "keccak256": "0x6e2851a8eed95d1a1df64e993473f8d22d73eea4ad8f100094610925e32a7829",
+            "license": "GPL-3.0",
+            "urls": [
+                "bzz-raw://3c840553ce77c35d7773d18e241576a607fb2a935c96cb4b3e4acb80b4bb287e",
+                "dweb:/ipfs/QmSGk7y9JpRiJk1fGfwKLKCadh3K88A6LAnGPup87SuDQ5"
+            ]
+        },
+        "contracts/EMS/struct.sol": {
+            "keccak256": "0x51bbbb025d79b5b09f2bb77f9dcabd767f76f51b6616214f6aac740f33dbc602",
+            "license": "GPL-3.0",
+            "urls": [
+                "bzz-raw://4ddca0defcb5ceb396f7482c8ab38b2a357fae2bf1c628f3dc31a7d378e2b0b5",
+                "dweb:/ipfs/QmUvRBZFVpUcqbSFTkEKqFrARbykZY4maaGqkD8WEKGnxk"
+            ]
+        }
+    },
+    "version": 1
+}

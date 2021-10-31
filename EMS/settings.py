@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'ems_ui.apps.EmsUiConfig',
+    'ems_ui.apps.EmsUiConfig',
+    'Tables'
 ]
 
 MIDDLEWARE = [
@@ -53,11 +55,10 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'EMS.urls'
 
 
-import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'ems_ui/templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'ems_ui/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,5 +129,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = '/ems_ui/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'ems_ui/static')]
-         
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ems_ui/static')]

@@ -1,0 +1,137 @@
+{
+    "regulation": [
+        { "reg_id": 1, "reg_value": 2012 },
+        { "reg_id": 2, "reg_value": 2015 },
+        { "reg_id": 3, "reg_value": 2019 }
+    ],
+    "department": [
+        { "dep_id": 1, "dep_name": "IST", "dep_hod": 3 },
+        { "dep_id": 2, "dep_name": "CSE", "dep_hod": 4 }
+    ],
+    "faculty": [
+        {
+            "f_id": 1,
+            "f_name": "Faculty 1A",
+            "f_designation": 1,
+            "dep_id": 1
+        },
+        {
+            "f_id": 2,
+            "f_name": "Faculty 1B",
+            "f_designation": 2,
+            "dep_id": 1
+        },
+        {
+            "f_id": 3,
+            "f_name": "Faculty 1C",
+            "f_designation": 3,
+            "dep_id": 1
+        },
+        {
+            "f_id": 4,
+            "f_name": "Faculty 2A",
+            "f_designation": 3,
+            "dep_id": 2
+        },
+        {
+            "f_id": 5,
+            "f_name": "Faculty 2C",
+            "f_designation": 1,
+            "dep_id": 2
+        }
+    ],
+    "branch": [
+        { "br_id": 1, "br_name": "Computer Application", "dep_id": 1 },
+        { "br_id": 2, "br_name": "Engneering", "dep_id": 1 }
+    ],
+    "student": [
+        {
+            "std_id": 2019202034,
+            "std_name": "Mukesh R",
+            "std_dob": "28-03-1999",
+            "std_addr": "Text area",
+            "std_email": "test@a.co",
+            "std_contact": "Mobile number",
+            "dep_id": 1,
+            "br_id": 1,
+            "reg_id": 3,
+            "pwd": "1"
+        },
+        {
+            "std_id": 2019202014,
+            "std_name": "Gowthaman",
+            "std_dob": "21-10-1998",
+            "std_addr": "Text area",
+            "std_email": "test@a.co",
+            "std_contact": "Mobile number",
+            "dep_id": 1,
+            "br_id": 1,
+            "reg_id": 3,
+            "pwd": "1"
+        },
+        {
+            "std_id": 2019202063,
+            "std_name": "Yuvaraj T",
+            "std_dob": "21-11-1998",
+            "std_addr": "Text area",
+            "std_email": "test@a.co",
+            "std_contact": "Mobile number",
+            "dep_id": 1,
+            "br_id": 1,
+            "reg_id": 3,
+            "pwd": "1"
+        },
+        {
+            "std_id": 2019202004,
+            "std_name": "Arun Kumar R",
+            "std_dob": "03-10-1996",
+            "std_addr": "Text area",
+            "std_email": "test@a.co",
+            "std_contact": "Mobile number",
+            "dep_id": 1,
+            "br_id": 1,
+            "reg_id": 3,
+            "pwd": "1"
+        }
+    ],
+    "course": [
+        {
+            "c_id": 1,
+            "c_code": "CA5010",
+            "c_name": "C# and .NET",
+            "c_qp_code": "CA5012",
+            "c_credits": 3,
+            "dep_id": 1
+        },
+        {
+            "c_id": 2,
+            "c_code": "CA5014",
+            "c_name": "Game Programming",
+            "c_qp_code": "CA5014",
+            "c_credits": 3,
+            "dep_id": 1
+        },
+        {
+            "c_id": 3,
+            "c_code": "CA5011",
+            "c_name": "OOAD",
+            "c_qp_code": "CA5011",
+            "c_credits": 3,
+            "dep_id": 1
+        },
+        {
+            "c_id": 4,
+            "c_code": "CA5013",
+            "c_name": "Machine Learings",
+            "c_qp_code": "CA5015",
+            "c_credits": 3,
+            "dep_id": 1
+        }
+    ],
+    "courselist": [
+        { "cl_id": 1, "c_id": 1, "f_id": 1, "sems": 5 },
+        { "cl_id": 2, "c_id": 2, "f_id": 2, "sems": 5 },
+        { "cl_id": 3, "c_id": 3, "f_id": 3, "sems": 5 },
+        { "cl_id": 4, "c_id": 4, "f_id": 1, "sems": 3 }
+    ]
+}
