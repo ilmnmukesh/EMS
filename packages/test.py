@@ -9,11 +9,11 @@ with open('dummy.json', "r") as s:
     dummy = json.load(s)
 
 
-w3 = web3.Web3(web3.HTTPProvider("http://127.0.0.1:7545"))
+w3 = web3.Web3(web3.HTTPProvider("http://127.0.0.1:8545"))
 w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 me = w3.eth.get_accounts()[0]
 cntr: Contract = w3.eth.contract(
-    "0x3e7D4f5D5fe96378c969F17fa984A07Bf977c24b", abi=abi["output"]["abi"])
+    "0x84FfcA2a335D550bD40552c60F20a471000B7066", abi=abi["output"]["abi"])
 
 
 def add(name, **val):

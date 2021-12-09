@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ems_ui.apps.EmsUiConfig',
-    'Tables'
+    'Tables',
+    "rest_framework"
 ]
 
 MIDDLEWARE = [
