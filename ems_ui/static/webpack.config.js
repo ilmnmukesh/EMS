@@ -10,7 +10,12 @@ module.exports = {
         filename: "[name].bundle.js",
     },
 
-    plugins: [new BundleTracker({ filename: "./webpack-stats.json" })],
+    plugins: [
+        new BundleTracker({ filename: "./webpack-stats.json" }),
+        new webpack.EnvironmentPlugin({
+            HOST: "127.0.0.1:8000",
+        }),
+    ],
     module: {
         rules: [
             {
