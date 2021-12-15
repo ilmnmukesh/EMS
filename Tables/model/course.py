@@ -32,6 +32,7 @@ class Course(MainModel):
     c_id = models.CharField(max_length=6, null=False, primary_key=True)
     c_name = models.CharField(max_length=100, null=False)
     c_qp_code = models.CharField(max_length=6)
+    c_code = models.CharField(max_length=6)
     c_credits = models.IntegerField()
     dep_id = models.ForeignKey("Department", on_delete=models.CASCADE)
 

@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ems_ui.apps.EmsUiConfig',
     'Tables',
-    "rest_framework"
+    "rest_framework",
+
+    'rest_framework.authtoken'
+
 ]
 
 MIDDLEWARE = [
@@ -118,6 +121,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+AUTH_USER_MODEL = "Tables.Student"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

@@ -3,8 +3,8 @@ from itertools import chain
 
 
 class MainModel(models.Model):
-    def __repr__(self):
-        return str(self.to_dict())
+    # def __repr__(self):
+    #     return str(self.to_dict())
 
     def to_dict(instance):
         opts = instance._meta

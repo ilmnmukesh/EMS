@@ -14,12 +14,13 @@ class ApiResponse(object):
 
 
 def api_response_decorator(func):
-    def DjangoRest(req):
+    def DjangoRest(req, *args, **kwargs):
         resp = ApiResponse()
         try:
-            func(req, resp)
+            func(req, resp, *args, **kwargs)
         except Exception as e:
-            resp.errors = dict(e)
+            print(e)
+            resp.errors = e.__dict__
             resp.description = "Something went Wrong"
 
         return Response(resp.__dict__)

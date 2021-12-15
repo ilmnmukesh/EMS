@@ -1,0 +1,219 @@
+{
+    "regulation": [
+        { "reg_id": 1, "reg_value": 2012 },
+        { "reg_id": 2, "reg_value": 2015 },
+        { "reg_id": 3, "reg_value": 2019 }
+    ],
+    "department": [
+        { "dep_id": 1, "dep_name": "IST", "dep_hod": 3 },
+        { "dep_id": 2, "dep_name": "CSE", "dep_hod": 4 }
+    ],
+    "faculty": [
+        {
+            "f_id": 1,
+            "f_name": "Faculty 1A",
+            "f_designation": "Teaching Follow",
+            "dep_id_id": 1
+        },
+        {
+            "f_id": 2,
+            "f_name": "Faculty 1B",
+            "f_designation": "Assistant Professor",
+            "dep_id_id": 1
+        },
+        {
+            "f_id": 3,
+            "f_name": "Faculty 1C",
+            "f_designation": "Professor",
+            "dep_id_id": 1
+        },
+        {
+            "f_id": 4,
+            "f_name": "Faculty 2A",
+            "f_designation": "Professor",
+            "dep_id_id": 2
+        },
+        {
+            "f_id": 5,
+            "f_name": "Faculty 2C",
+            "f_designation": "Teaching Follow",
+            "dep_id_id": 2
+        }
+    ],
+    "branch": [
+        { "br_id": 1, "br_name": "Computer Application", "dep_id_id": 1 },
+        { "br_id": 2, "br_name": "Engneering", "dep_id_id": 1 }
+    ],
+    "student": [
+        {
+            "rollno": 2019202034,
+            "std_name": "Mukesh R",
+            "std_dob": "1999-03-28",
+            "std_addr": "Text area",
+            "std_email": "test@a.co",
+            "std_contact": "Mobile number",
+            "password": "1"
+        },
+        {
+            "rollno": 2019202014,
+            "std_name": "Gowthaman",
+            "std_dob": "1998-10-21",
+            "std_addr": "Text area",
+            "std_email": "test@a.co",
+            "std_contact": "Mobile number",
+            "password": "1"
+        },
+        {
+            "rollno": 2019202063,
+            "std_name": "Yuvaraj T",
+            "std_dob": "1998-11-21",
+            "std_addr": "Text area",
+            "std_email": "test@a.co",
+            "std_contact": "Mobile number",
+            "password": "1"
+        },
+        {
+            "rollno": 2019202004,
+            "std_name": "Arun Kumar R",
+            "std_dob": "1996-10-03",
+            "std_addr": "Text area",
+            "std_email": "test@a.co",
+            "std_contact": "Mobile number",
+            "password": "1"
+        }
+    ],
+    "student relation": [
+        {
+            "student_id": 2019202034,
+            "dep_id_id": 1,
+            "br_id_id": 1,
+            "reg_id_id": 3
+        },
+        {
+            "student_id": 2019202014,
+            "dep_id_id": 1,
+            "br_id_id": 1,
+            "reg_id_id": 3
+        },
+        {
+            "student_id": 2019202004,
+            "dep_id_id": 1,
+            "br_id_id": 1,
+            "reg_id_id": 3
+        },
+        {
+            "student_id": 2019202063,
+            "dep_id_id": 1,
+            "br_id_id": 1,
+            "reg_id_id": 3
+        }
+    ],
+    "course": [
+        {
+            "c_id": 1,
+            "c_code": "CA5010",
+            "c_name": "C# and .NET",
+            "c_qp_code": "CA5012",
+            "c_credits": 3,
+            "dep_id_id": 1
+        },
+        {
+            "c_id": 2,
+            "c_code": "CA5014",
+            "c_name": "Game Programming",
+            "c_qp_code": "CA5014",
+            "c_credits": 3,
+            "dep_id_id": 1
+        },
+        {
+            "c_id": 3,
+            "c_code": "CA5011",
+            "c_name": "OOAD",
+            "c_qp_code": "CA5011",
+            "c_credits": 3,
+            "dep_id_id": 1
+        },
+        {
+            "c_id": 4,
+            "c_code": "CA5013",
+            "c_name": "Machine Learings",
+            "c_qp_code": "CA5015",
+            "c_credits": 3,
+            "dep_id_id": 1
+        }
+    ],
+    "course list": [
+        { "cl_id": 1, "c_id_id": 1, "f_id_id": 1, "sems": 5 },
+        { "cl_id": 2, "c_id_id": 2, "f_id_id": 2, "sems": 5 },
+        { "cl_id": 3, "c_id_id": 3, "f_id_id": 3, "sems": 5 },
+        { "cl_id": 4, "c_id_id": 4, "f_id_id": 1, "sems": 3 }
+    ],
+    "instruction": [
+        { "id": 1, "title": "Enrollment" },
+        { "id": 2, "title": "Drop Course" },
+        { "id": 3, "title": "Add other Course/Reaapear" }
+    ],
+    "instruction point": [
+        {
+            "content": "Subjects selected in enrollment proccess is listed in enrollment page.",
+            "instruction_id": 1
+        },
+        {
+            "content": "You can change your previous selection if slot is available.",
+            "instruction_id": 1
+        },
+        {
+            "content": "If you drop and undo in Step 2 and slot is not available, you must come back to this Step and enroll again.",
+            "instruction_id": 1
+        },
+
+        {
+            "content": "You can drop up to 2 subjects (Max total of 6 credits).",
+            "instruction_id": 2
+        },
+
+        {
+            "content": "When you drop a subject, it gets removed i.e., disenrolled.\nWarning: When you try to enroll again, same slots may not be available.",
+            "instruction_id": 2
+        },
+
+        {
+            "content": "When you undo a dropped subject, system automatically re-enrolls you if slot is available.",
+            "instruction_id": 2
+        },
+
+        {
+            "content": "If slot is not available, you must go back to Step 1 and enroll again.",
+            "instruction_id": 2
+        },
+        {
+            "content": "Students can enroll upto 2 subjects other than regular subjects (Max total of 6 credits).",
+            "instruction_id": 3
+        },
+        {
+            "content": "It can be either re-appear or subject from different branch belonging to same slot group.",
+            "instruction_id": 3
+        },
+        {
+            "content": "For reappear, REA slot is used. For other subjects, OTH is used.",
+            "instruction_id": 3
+        }
+    ],
+    "circular": [
+        {
+            "description": "Re-Mock test schedule and login details (31-01-2021 11:00 A.M.)",
+            "download": "To download Anna University Exam SEB for Windows Laptop/Destop or Anna University Exam app (*.apk) for Android Mobile/Tablet.",
+            "link": "https://auseb.azurewebsites.net/"
+        },
+        {
+            "description": "Mock details (31-01-2021 11:00 A.M.)",
+            "download": "To download Anna University Exam SEB for Windows Laptop/Destop or Anna University Exam app (*.apk) for Android Mobile/Tablet.",
+            "link": "https://auseb.azurewebsites.net/"
+        },
+        {
+            "description": "Mock Test has been Details (01-02-2021 11:00 A.M.)",
+            "download": "To download Anna University Exam SEB for Windows Laptop/Destop or Anna University Exam app (*.apk) for Android Mobile/Tablet.",
+            "link": "https://auseb.azurewebsites.net/"
+        }
+    ]
+}
