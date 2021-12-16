@@ -133,5 +133,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATIC_URL = '/ems_ui/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ems_ui/static')]
+STATIC_URL = '/assets/'
+
+MEDIA_URL = "/media/"
+STATICFILES_DIRS = [os.path.join(
+    BASE_DIR, 'ems_ui/static'), BASE_DIR / "ems_ui"/"static"/"src"]
