@@ -20,6 +20,7 @@ class UserManager(BaseUserManager):
 
         user = self.model(rollno=rollno, password=password, *args, **kwargs)
         user.set_password(password)
+        user.is_active = True
         user.save()
         return user
 
@@ -48,7 +49,7 @@ class Student(AbstractBaseUser, PermissionsMixin):
     std_contact = models.CharField(max_length=20)
 
     is_verified = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

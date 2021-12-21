@@ -138,3 +138,9 @@ STATIC_URL = '/assets/'
 MEDIA_URL = "/media/"
 STATICFILES_DIRS = [os.path.join(
     BASE_DIR, 'ems_ui/static'), BASE_DIR / "ems_ui"/"static"/"src"]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}

@@ -37,6 +37,10 @@ class Course(MainModel):
     dep_id = models.ForeignKey("Department", on_delete=models.CASCADE)
 
 
+class Session(MainModel):
+    value = models.CharField(max_length=100, unique=True)
+
+
 class CourseList(MainModel):
     cl_id = models.AutoField(primary_key=True)
     c_id = models.ForeignKey("Course", on_delete=models.CASCADE)
@@ -49,12 +53,14 @@ class StudentEnrollment(MainModel):
     cl_id = models.ForeignKey("CourseList", on_delete=models.CASCADE)
     grade = models.CharField(
         max_length=30, choices=SEMS_GRADE.choices, default="NA")
-    external_marks = models.IntegerField()
-    internal_marks = models.IntegerField()
-    attendance = models.IntegerField()
-    att_1 = models.IntegerField()
-    att_2 = models.IntegerField()
-    att_3 = models.IntegerField()
-    int_1 = models.IntegerField()
-    int_2 = models.IntegerField()
-    int_3 = models.IntegerField()
+    external_marks = models.IntegerField(null=True)
+    internal_marks = models.IntegerField(null=True)
+    attendance = models.IntegerField(null=True)
+    att_1 = models.IntegerField(null=True)
+    att_2 = models.IntegerField(null=True)
+    att_3 = models.IntegerField(null=True)
+    int_1 = models.IntegerField(null=True)
+    int_2 = models.IntegerField(null=True)
+    int_3 = models.IntegerField(null=True)
+    regulation = models.ForeignKey("Regulation", on_delete=models.CASCADE)
+    session = models.ForeignKey("Session", on_delete=models.CASCADE)

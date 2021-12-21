@@ -15,7 +15,7 @@ class ApiResponse(object):
 
 def api_response_decorator(func):
     def DjangoRest(req, *args, **kwargs):
-        resp = ApiResponse()
+        resp = ApiResponse(False, {}, "", {})
         try:
             func(req, resp, *args, **kwargs)
         except Exception as e:

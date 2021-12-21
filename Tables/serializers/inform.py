@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Tables.models import Instruction, InstructionPoint, Circular
+from Tables.models import Instruction, InstructionPoint, Circular, Session
 
 
 class InstructionPointSerializer(serializers.ModelSerializer):

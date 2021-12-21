@@ -4,6 +4,19 @@
         { "reg_id": 2, "reg_value": 2015 },
         { "reg_id": 3, "reg_value": 2019 }
     ],
+    "session": [
+        {
+            "id": 1,
+            "value": "Jun 2019- Nov 2019"
+        },
+        {
+            "id": 2,
+            "value": "Dec 2019- May 2020"
+        },
+        { "id": 3, "value": "Jun 2020- Dec 2020" },
+        { "id": 4, "value": "Jan 2021- May 2021" },
+        { "id": 5, "value": "Jun 2021- Jan 2022" }
+    ],
     "department": [
         { "dep_id": 1, "dep_name": "IST", "dep_hod": 3 },
         { "dep_id": 2, "dep_name": "CSE", "dep_hod": 4 }
