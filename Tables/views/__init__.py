@@ -1,7 +1,4 @@
-from django.shortcuts import render
 import json
-from .view import auth
-from .view import dashboard
 from Tables import models
 
 
@@ -20,7 +17,3 @@ def loads():
             except Exception as e:
                 print(e)
                 break
-# def add(name, **val):
-#     parmas = getattr(cntr.functions, "create"+name.capitalize())(**val)
-#     txn = parmas.transact({"from": me, 'gas': 700000, })
-#     print(txn)
