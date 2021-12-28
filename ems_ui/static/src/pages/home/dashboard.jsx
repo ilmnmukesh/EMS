@@ -1,6 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 import "../../assets/css/custom.css";
+import { ApiGetService } from "../../api/api-services";
 const Dashboard = () => {
+    const [Enroll, setEnroll] = useState([])
+    const [DropCourse, setDropCourse] = useState([])
+    const [AddCourse, setAddCourse]=useState([])
+
+    useEffect(() => {
+        const getData =async()=>{
+            let token=localStorage.getItem('token')
+            console.log(token);
+            let res=await ApiGetService("/api/dashboard/", token)
+            setEnroll(res?.instructions[0]?.contents)
+            setDropCourse(res?.instructions[1]?.contents)
+            setAddCourse(res?.instructions[2]?.contents)
+            console.log(res)
+        }
+        getData()
+        
+    }, [])
+
+    useEffect(() => {
+        DropCourse.map((i)=>{
+            console.log(i.content)
+        })
+    }, [DropCourse])
+
+
+    const instr = Enroll.map((i)=>
+        <li>
+            {i.content}
+        </li>
+    );
+
+    const dropCrse =DropCourse.map((i)=><li>{i.content}</li>)
+
+    const AddCrse =AddCourse.map((i)=><li>{i.content}</li>)
+
     return (
         <>
             <div className='hold-transition skin-blue sidebar-mini sidebar-collapse'>
@@ -32,73 +68,19 @@ const Dashboard = () => {
                                         <br />
                                         <b> Step 1 - Enrollment </b>
                                         <ul className='ulx'>
-                                            <li>
-                                                Subjects selected in enrollment
-                                                proccess is listed in enrollment
-                                                page.
-                                            </li>
-                                            <li>
-                                                You can change your previous
-                                                selection if slot is available.
-                                            </li>
-                                            <li>
-                                                If you drop and undo in Step 2
-                                                and slot is not available, you
-                                                must come back to this Step and
-                                                enroll again.
-                                            </li>
+                                            {instr}
+                                            
                                         </ul>
                                         <b> Step 2 - Drop Course</b>
                                         <ul className='ulx'>
-                                            <li>
-                                                You can drop up to 2 subjects
-                                                (Max total of 6 credits).
-                                            </li>
-                                            <li>
-                                                When you drop a subject, it gets
-                                                removed i.e.,{" "}
-                                                <strong>
-                                                    disenrolled. <br />
-                                                    Warning:{" "}
-                                                </strong>
-                                                When you try to enroll again,
-                                                same slots may not be available.
-                                            </li>
-                                            <li>
-                                                When you undo a dropped subject,
-                                                system automatically re-enrolls
-                                                you{" "}
-                                                <strong>
-                                                    if slot is available.
-                                                </strong>
-                                            </li>
-                                            <li>
-                                                If slot is not available, you
-                                                must go back to{" "}
-                                                <strong>Step 1</strong> and
-                                                enroll again.
-                                            </li>
+                                            {dropCrse}
                                         </ul>
                                         <b>
                                             {" "}
                                             Step 3 - Add other Course/Reaapear
                                         </b>
                                         <ul className='ulx'>
-                                            <li>
-                                                Students can enroll upto 2
-                                                subjects other than regular
-                                                subjects (Max total of 6
-                                                credits).
-                                            </li>
-                                            <li>
-                                                It can be either re-appear or
-                                                subject from different branch
-                                                belonging to same slot group.
-                                            </li>
-                                            <li>
-                                                For reappear, REA slot is used.
-                                                For other subjects, OTH is used.
-                                            </li>
+                                            {AddCrse}
                                         </ul>
                                         <b>
                                             {" "}
