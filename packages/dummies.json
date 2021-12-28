@@ -128,6 +128,7 @@
             "c_name": "C# and .NET",
             "c_qp_code": "CA5012",
             "c_credits": 3,
+            "c_type": "Thoery",
             "dep_id_id": 1
         },
         {
@@ -136,6 +137,7 @@
             "c_name": "Game Programming",
             "c_qp_code": "CA5014",
             "c_credits": 3,
+            "c_type": "Thoery",
             "dep_id_id": 1
         },
         {
@@ -144,6 +146,7 @@
             "c_name": "OOAD",
             "c_qp_code": "CA5011",
             "c_credits": 3,
+            "c_type": "Thoery",
             "dep_id_id": 1
         },
         {
@@ -152,14 +155,21 @@
             "c_name": "Machine Learings",
             "c_qp_code": "CA5015",
             "c_credits": 3,
+            "c_type": "Thoery",
             "dep_id_id": 1
         }
     ],
+    "course fee": [
+        { "c_id_id": 1, "fee": 450 },
+        { "c_id_id": 2, "fee": 450 },
+        { "c_id_id": 3, "fee": 450 },
+        { "c_id_id": 4, "fee": 450 }
+    ],
     "course list": [
-        { "cl_id": 1, "c_id_id": 1, "f_id_id": 1, "sems": 5 },
-        { "cl_id": 2, "c_id_id": 2, "f_id_id": 2, "sems": 5 },
-        { "cl_id": 3, "c_id_id": 3, "f_id_id": 3, "sems": 5 },
-        { "cl_id": 4, "c_id_id": 4, "f_id_id": 1, "sems": 3 }
+        { "cl_id": 1, "c_id_id": 1, "f_id_id": 1, "br_id_id": 1, "sems": 5 },
+        { "cl_id": 2, "c_id_id": 2, "f_id_id": 2, "br_id_id": 1, "sems": 5 },
+        { "cl_id": 3, "c_id_id": 3, "f_id_id": 3, "br_id_id": 1, "sems": 5 },
+        { "cl_id": 4, "c_id_id": 4, "f_id_id": 1, "br_id_id": 1, "sems": 3 }
     ],
     "instruction": [
         { "id": 1, "title": "Enrollment" },

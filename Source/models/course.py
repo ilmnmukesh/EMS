@@ -28,12 +28,19 @@ class SEMS_GRADE(models.TextChoices):
         return self.label, self.value
 
 
+class COURSE_TYPE(models.TextChoices):
+    THEORY = "Theory", "Theory"
+    LAB = "Laboratory", "Lab"
+
+
 class Course(MainModel):
     c_id = models.CharField(max_length=6, null=False, primary_key=True)
     c_name = models.CharField(max_length=100, null=False)
     c_qp_code = models.CharField(max_length=6)
     c_code = models.CharField(max_length=6)
     c_credits = models.IntegerField()
+    c_type = models.CharField(
+        max_length=15, choices=COURSE_TYPE.choices, default="Theory")
     dep_id = models.ForeignKey("Department", on_delete=models.CASCADE)
 
 
@@ -41,10 +48,16 @@ class Session(MainModel):
     value = models.CharField(max_length=100, unique=True)
 
 
+class CourseFee(MainModel):
+    c_id = models.OneToOneField("Course", on_delete=models.CASCADE)
+    fee = models.IntegerField()
+
+
 class CourseList(MainModel):
     cl_id = models.AutoField(primary_key=True)
     c_id = models.ForeignKey("Course", on_delete=models.CASCADE)
     f_id = models.ForeignKey("Faculty", on_delete=models.CASCADE)
+    br_id = models.ForeignKey("Branch", on_delete=models.CASCADE)
     sems = models.CharField(max_length=1, choices=SEMS_LIST, default="1")
 
 
@@ -64,3 +77,6 @@ class StudentEnrollment(MainModel):
     int_3 = models.IntegerField(null=True)
     regulation = models.ForeignKey("Regulation", on_delete=models.CASCADE)
     session = models.ForeignKey("Session", on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ("std_id", "cl_id", "session")

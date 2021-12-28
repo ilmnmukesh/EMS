@@ -37,3 +37,13 @@ def get_branch(request: Request, response: ApiResponse, did):
     query = models.Branch.objects.filter(dep_id=did)
     response.data = serializers.BranchSerializer(
         instance=query, many=True).data
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+@api_response_decorator
+def session_details(request: Request, response: ApiResponse):
+    response.success = True
+    query = models.Session.objects.all()
+    response.data = serializers.SessionSerializer(
+        instance=query, many=True).data

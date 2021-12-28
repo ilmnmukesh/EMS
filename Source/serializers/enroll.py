@@ -56,6 +56,11 @@ class StudentEnrollSerializer(serializers.ModelSerializer):
         model = models.StudentEnrollment
         fields = ["std_id", "cl_id", "regulation", "session"]
 
+    def to_representation(self, instance):
+        default = super().to_representation(instance)
+        course = CourseListSerializer(instance=instance.cl_id).data
+        return {**default, **course}
+
 
 class StudentEnrollAllSerializer(serializers.ModelSerializer):
     class Meta:
@@ -71,3 +76,4 @@ class StudentEnrollAllSerializer(serializers.ModelSerializer):
 class GetCourseSerializer(serializers.Serializer):
     semester = serializers.IntegerField()
     dep_id = serializers.IntegerField()
+    br_id = serializers.IntegerField()

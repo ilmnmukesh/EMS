@@ -5,3 +5,5 @@ from .enroll import (
     CourseListSerializer, StudentEnrollSerializer,
     StudentEnrollAllSerializer
 )
+from .student import StudentSerializer
+from .fee import FeeDetailsSerializer, FeeRequirementSerializer
