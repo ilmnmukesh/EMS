@@ -64,7 +64,7 @@ class Student(AbstractBaseUser, PermissionsMixin):
 
     @property
     def token(self):
-        return Token.objects.get(user=self).key
+        return self.auth_token.key
 
 
 class StudentRelation(MainModel):

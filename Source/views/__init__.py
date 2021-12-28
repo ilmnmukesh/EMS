@@ -35,3 +35,5 @@ def loads():
     print(us)
     Token.objects.filter(user=us).update(
         key="62ca3626b3291d374be9befb29a2c841db2751b5")
+    models.Faculty.objects.filter(f_no="FA000001").update(
+        token="a27e951a41e165b3acd3b1426092d8bb03bd0d7e")

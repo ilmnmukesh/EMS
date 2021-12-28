@@ -1,8 +1,14 @@
 from django.urls import path
-from .views import auth, dashboard, enroll, student, fee
+from .views import auth, dashboard, enroll, student, fee, faculty
 
 urlpatterns = [
     path("auth/", auth.login),
+    path("auth/faculty/", auth.faculty_login),
+
+    path("faculty/details/", faculty.details),
+    path("faculty/class/", faculty.attend_class),
+    path("faculty/students/", faculty.view_class_student),
+    path("faculty/students/update/", faculty.update_class_student),
 
     path("dashboard/", dashboard.details),
     path("enroll/basic/", dashboard.basic_enrollment),

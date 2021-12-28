@@ -140,6 +140,7 @@ STATICFILES_DIRS = [os.path.join(
     BASE_DIR, 'ems_ui/static'), BASE_DIR / "ems_ui"/"static"/"src"]
 
 REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'Source.authentication.exception.handler',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],

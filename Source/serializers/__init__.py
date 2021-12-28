@@ -7,3 +7,7 @@ from .enroll import (
 )
 from .student import StudentSerializer
 from .fee import FeeDetailsSerializer, FeeRequirementSerializer
+from .faculty import (
+    FacultySerializer, FacultySubjectSerializer,
+    FacultyStudentSerializer
+)

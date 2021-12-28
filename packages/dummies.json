@@ -26,33 +26,39 @@
             "f_id": 1,
             "f_name": "Faculty 1A",
             "f_designation": "Teaching Follow",
+            "password": "1",
             "dep_id_id": 1
         },
         {
             "f_id": 2,
             "f_name": "Faculty 1B",
             "f_designation": "Assistant Professor",
+            "password": "1",
             "dep_id_id": 1
         },
         {
             "f_id": 3,
             "f_name": "Faculty 1C",
             "f_designation": "Professor",
+            "password": "1",
             "dep_id_id": 1
         },
         {
             "f_id": 4,
             "f_name": "Faculty 2A",
             "f_designation": "Professor",
+            "password": "1",
             "dep_id_id": 2
         },
         {
             "f_id": 5,
             "f_name": "Faculty 2C",
             "f_designation": "Teaching Follow",
+            "password": "1",
             "dep_id_id": 2
         }
     ],
+    "faculty details": [{}],
     "branch": [
         { "br_id": 1, "br_name": "Computer Application", "dep_id_id": 1 },
         { "br_id": 2, "br_name": "Engneering", "dep_id_id": 1 }

@@ -24,5 +24,6 @@ def details(request: Request, response: ApiResponse):
             std_id=std, session=ses, cl_id__br_id=br)
         response.data = serializers.FeeDetailsSerializer(
             instance=query, many=True).data
+        response.success = True
     else:
         response.errors = ser.errors

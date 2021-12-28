@@ -14,14 +14,14 @@ SEMS_LIST = (
 
 
 class SEMS_GRADE(models.TextChoices):
-    NA = "Not Assign", "NA"
-    SA = "Shortage of Attendance", "SA"
-    RA = "ReAppear", "RA"
-    B = "Above Average", "B"
-    BPLUS = "Good", "B+"
-    A = "Very Good", "A"
-    APLUS = "Excellet", "A+"
-    O = "Outstanding",  "O"
+    NA = "NA", "Not Assign"
+    SA = "SA", "Shortage of Attendance"
+    RA = "RA", "ReAppear"
+    B = "B", "Above Average"
+    BPLUS = "B+", "Good"
+    A = "A", "Very Good"
+    APLUS = "A+", "Excellent"
+    O = "O", "Outstanding"
 
     @property
     def data(self):
