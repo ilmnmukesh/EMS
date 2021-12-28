@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.request import Request
-from Tables.response import ApiResponse, api_response_decorator
-from Tables import models
+from Source.response import ApiResponse, api_response_decorator
+from Source import models
 
 
 @api_view(["GET"])

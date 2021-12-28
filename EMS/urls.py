@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('ems_ui.urls')),
-    path('api/', include('Tables.urls')),
+    path('api/', include('Source.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,

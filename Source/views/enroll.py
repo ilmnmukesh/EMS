@@ -1,7 +1,7 @@
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.request import Request
-from Tables.response import ApiResponse, api_response_decorator
-from Tables import models, serializers
+from Source.response import ApiResponse, api_response_decorator
+from Source import models, serializers
 from rest_framework.permissions import IsAuthenticated
 
 
