@@ -1,63 +1,81 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import "../../assets/css/custom.css";
 import { ApiGetService } from "../../api/api-services";
 const Dashboard = () => {
-    const [Enroll, setEnroll] = useState([])
-    const [DropCourse, setDropCourse] = useState([])
-    const [AddCourse, setAddCourse]=useState([])
+    const [Enroll, setEnroll] = useState([]);
+    const [DropCourse, setDropCourse] = useState([]);
+    const [AddCourse, setAddCourse] = useState([]);
+    const [MockTable, setMockTable] = useState([]);
 
     useEffect(() => {
-        const getData =async()=>{
-            let token=localStorage.getItem('token')
-            console.log(token);
-            let res=await ApiGetService("/api/dashboard/", token)
-            setEnroll(res?.instructions[0]?.contents)
-            setDropCourse(res?.instructions[1]?.contents)
-            setAddCourse(res?.instructions[2]?.contents)
-            console.log(res)
-        }
-        getData()
-        
-    }, [])
+        const getData = async () => {
+            let res = await ApiGetService("/api/dashboard/");
+            setEnroll(res?.instructions[0]?.contents);
+            setDropCourse(res?.instructions[1]?.contents);
+            setAddCourse(res?.instructions[2]?.contents);
+            setMockTable(res?.circular);
+            console.log(res);
+        };
+        getData();
+    }, []);
 
-    useEffect(() => {
-        DropCourse.map((i)=>{
-            console.log(i.content)
-        })
-    }, [DropCourse])
+    const instr = Enroll.map((i) => <li>{i.content}</li>);
 
+    const dropCrse = DropCourse.map((i) => <li>{i.content}</li>);
 
-    const instr = Enroll.map((i)=>
-        <li>
-            {i.content}
-        </li>
-    );
+    const AddCrse = AddCourse.map((i) => <li>{i.content}</li>);
 
-    const dropCrse =DropCourse.map((i)=><li>{i.content}</li>)
+    const MockCircular = MockTable.map((i) => (
+        <tr>
+            <td className="col-md-6">
+                {i.description}
+                <img
+                    src="https://acoe.annauniv.edu/sems/assests/img/new.gif"
+                    width="40"
+                    height="30"
+                    border="0"
+                />
+            </td>
 
-    const AddCrse =AddCourse.map((i)=><li>{i.content}</li>)
+            <td className="col-md-6">
+                <font color="green">{i.download}</font>{" "}
+                <img
+                    src="https://acoe.annauniv.edu/sems/assests/img/new.gif"
+                    width="40"
+                    height="30"
+                    border="0"
+                />
+            </td>
+            <td className="col-md-6">
+                <a className="level" href={i.link} target="_blank">
+                    Click Here
+                </a>
+            </td>
+        </tr>
+    ));
 
     return (
         <>
-            <div className='hold-transition skin-blue sidebar-mini sidebar-collapse'>
+            <div className="hold-transition skin-blue sidebar-mini sidebar-collapse">
                 <div>
-                    <section className='content'>
-                        <div className='row'>
-                            <div className='col-md-12'>
-                                <div className='box box-primary'>
-                                    <div className='box-header with-border'>
-                                        <h3 className='box-title'>
+                    <section className="content">
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="box box-primary">
+                                    <div className="box-header with-border">
+                                        <h3 className="box-title">
                                             Instructions
                                         </h3>
-                                        <div className='box-tools pull-right'>
+                                        <div className="box-tools pull-right">
                                             <button
-                                                className='btn btn-box-tool'
-                                                data-widget='collapse'>
-                                                <i className='fa fa-minus'></i>
+                                                className="btn btn-box-tool"
+                                                data-widget="collapse"
+                                            >
+                                                <i className="fa fa-minus"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <div className='box-body'>
+                                    <div className="box-body">
                                         <b style={{ fontSize: "20px" }}>
                                             Important Note: Kindly refer the
                                             timetable link before the enrollment
@@ -67,27 +85,20 @@ const Dashboard = () => {
                                         </b>
                                         <br />
                                         <b> Step 1 - Enrollment </b>
-                                        <ul className='ulx'>
-                                            {instr}
-                                            
-                                        </ul>
+                                        <ul className="ulx">{instr}</ul>
                                         <b> Step 2 - Drop Course</b>
-                                        <ul className='ulx'>
-                                            {dropCrse}
-                                        </ul>
+                                        <ul className="ulx">{dropCrse}</ul>
                                         <b>
                                             {" "}
                                             Step 3 - Add other Course/Reaapear
                                         </b>
-                                        <ul className='ulx'>
-                                            {AddCrse}
-                                        </ul>
+                                        <ul className="ulx">{AddCrse}</ul>
                                         <b>
                                             {" "}
                                             Note: Read Carefully before proceed
                                             to enrollment
                                         </b>
-                                        <ul className='ulx'>
+                                        <ul className="ulx">
                                             <li>
                                                 Before you choose the other
                                                 department courses, kindly
@@ -102,17 +113,18 @@ const Dashboard = () => {
                                                 time table page.{" "}
                                             </li>
 
-                                            <li className='text-red'>
+                                            <li className="text-red">
                                                 For students facing issue in
                                                 registration contact:
                                                 044-22359834
                                             </li>
                                         </ul>
                                         <div>
-                                            <a href='https://acoe.annauniv.edu/download_forms/Enrollment/A20/DOS AND DONOTS.pdf'>
+                                            <a href="https://acoe.annauniv.edu/download_forms/Enrollment/A20/DOS AND DONOTS.pdf">
                                                 <font
                                                     style={{ color: "red" }}
-                                                    size='4'>
+                                                    size="4"
+                                                >
                                                     <b>
                                                         Do's and Don'ts during
                                                         enrolment (August -
@@ -127,98 +139,49 @@ const Dashboard = () => {
                                 </div>
                             </div>
 
-                            <div className='col-md-12 text-blue'>
+                            <div className="col-md-12 text-blue">
                                 <h4>
                                     <b>Mock Test Link</b>
                                 </h4>
                             </div>
-                            <div className='col-md-12'>
-                                <div className='box box-solid'>
-                                    <div className='box-body'>
+                            <div className="col-md-12">
+                                <div className="box box-solid">
+                                    <div className="box-body">
                                         <table
-                                            className='table table-condesned table-bordered table-striped'
-                                            id='qp_template_table'>
+                                            className="table table-condesned table-bordered table-striped"
+                                            id="qp_template_table"
+                                        >
                                             <thead>
                                                 <tr>
-                                                    <th className='col-md-6'>
+                                                    <th className="col-md-6">
                                                         Description
                                                     </th>
-                                                    <th className='col-md-6'>
+                                                    <th className="col-md-6">
                                                         Download Link
                                                     </th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td className='col-md-6'>
-                                                        Re-Mock test schedule
-                                                        and login details
-                                                        (31-01-2021 11:00 A.M.)
-                                                        <img
-                                                            src='https://acoe.annauniv.edu/sems/assests/img/new.gif'
-                                                            width='40'
-                                                            height='30'
-                                                            border='0'
-                                                        />
-                                                    </td>
-
-                                                    <td className='col-md-6'>
-                                                        <font color='green'>
-                                                            To download Anna
-                                                            University Exam SEB
-                                                            for Windows
-                                                            Laptop/Destop or
-                                                            Anna University Exam
-                                                            app (*.apk) for
-                                                            Android
-                                                            Mobile/Tablet.
-                                                        </font>{" "}
-                                                        <font color='red'>
-                                                            {" "}
-                                                            Important Note - Use
-                                                            your registration
-                                                            number to login and
-                                                            the password is the
-                                                            Date of Birth as
-                                                            mentioned in the
-                                                            mock test pdf
-                                                        </font>
-                                                        <img
-                                                            src='https://acoe.annauniv.edu/sems/assests/img/new.gif'
-                                                            width='40'
-                                                            height='30'
-                                                            border='0'
-                                                        />
-                                                    </td>
-                                                    <td className='col-md-6'>
-                                                        <a
-                                                            className='level'
-                                                            href='https://auseb.azurewebsites.net/'
-                                                            target='_blank'>
-                                                            Click Here
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
+                                            <tbody>{MockCircular}</tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className='col-md-12'>
-                                <div className='box box-primary'>
-                                    <div className='box-header with-border'>
-                                        <h3 className='box-title'>Timetable</h3>
-                                        <div className='box-tools pull-right'>
+                            <div className="col-md-12">
+                                <div className="box box-primary">
+                                    <div className="box-header with-border">
+                                        <h3 className="box-title">Timetable</h3>
+                                        <div className="box-tools pull-right">
                                             <button
-                                                className='btn btn-box-tool'
-                                                data-widget='collapse'>
-                                                <i className='fa fa-minus'></i>
+                                                className="btn btn-box-tool"
+                                                data-widget="collapse"
+                                            >
+                                                <i className="fa fa-minus"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    <div className='box-body no-padding'>
-                                        <table className='table table-bordered table-condensed'>
+                                    <div className="box-body no-padding">
+                                        <table className="table table-bordered table-condensed">
                                             <thead>
                                                 <tr>
                                                     <th>Day / Hour</th>
@@ -234,13 +197,13 @@ const Dashboard = () => {
                                                     <th>10</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id='tt'></tbody>
+                                            <tbody id="tt"></tbody>
                                         </table>
                                         <input
-                                            type='hidden'
-                                            name='sessions'
-                                            id='sessions'
-                                            value='KlHS1Jgagai4M%3EujUG%3EG5cKDZuxoO8GEhxkEnSCAAriwkE6k2%2BZcohCfFnZ1U83B2ztMqr2e%3E679N9ul32353g%3D%3D'
+                                            type="hidden"
+                                            name="sessions"
+                                            id="sessions"
+                                            value="KlHS1Jgagai4M%3EujUG%3EG5cKDZuxoO8GEhxkEnSCAAriwkE6k2%2BZcohCfFnZ1U83B2ztMqr2e%3E679N9ul32353g%3D%3D"
                                         />
                                     </div>
                                 </div>
@@ -249,9 +212,9 @@ const Dashboard = () => {
                     </section>
                 </div>
 
-                <footer className='main-footer'>
+                <footer className="main-footer">
                     <strong>
-                        Copyright &copy; 2021 <a href='#'>SEMS</a>.
+                        Copyright &copy; 2021 <a href="#">SEMS</a>.
                     </strong>{" "}
                     All rights reserved.
                 </footer>
