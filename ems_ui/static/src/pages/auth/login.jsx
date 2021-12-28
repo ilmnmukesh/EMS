@@ -3,6 +3,7 @@ import { Col, Row, Form } from "react-bootstrap";
 import { FormControl, GLogin, SubmitBtn, FormTag, Bred } from "./styled";
 import { ToastContainer, toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
+import { ApiPostService } from "../../api/api-services";
 
 
 const Login = ({ toggle }) => {
@@ -10,6 +11,7 @@ const Login = ({ toggle }) => {
     const [showModal, setShowModal] = useState(false);
 
     const [data, setData] = useState({ rollno: "", password: "" });
+    const [err, setErr]=useState("")
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -18,8 +20,16 @@ const Login = ({ toggle }) => {
             [name]: value,
         }));
     };
-    const login = () => {
-        history.push('/studentHome')
+    const login = async() => {
+        let res=await ApiPostService("/api/auth/", data);
+        console.log(res)
+        if(res.data.valid){
+            localStorage.setItem('token', res.data.token)
+            history.push('/studentHome')
+        }
+        else{
+            setErr("Rollno or Password Incorrect")
+        }
     }
 
     return (
@@ -34,7 +44,7 @@ const Login = ({ toggle }) => {
                         required
                         value={data.rollno}
                         onChange={handleChange}
-                        name="email"
+                        name="rollno"
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPwd">
@@ -66,13 +76,16 @@ const Login = ({ toggle }) => {
                     Login
                 </SubmitBtn>
             </FormTag>
+            <div className="d-flex justify-content-center mt-5">
+                <p style={{color:"#fff"}}>{err}</p>
+            </div>
 
             <div className="d-flex justify-content-center mt-5">
                 <button
                     style={{ color: Bred, border: "none", background: "none" }}
                     onClick={() => toggle(false)}
                 >
-                    <span className="text-muted">You must be a student of </span>
+                    <span className="text-muted">You must be a student of  </span>
                     CEG
                 </button>
             </div>
