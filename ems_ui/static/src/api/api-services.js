@@ -1,8 +1,10 @@
 import axios from "axios";
 
-async function ApiGetService(link, token) {
+async function ApiGetService(link) {
     let res;
     let url = "http://127.0.0.1:8000" + link;
+
+    let token = localStorage.getItem("token");
 
     try {
         res = await axios.get(url, {
@@ -11,6 +13,7 @@ async function ApiGetService(link, token) {
             },
         });
         if (res.data.success) {
+            // console.log(res.data);
             return res.data.data;
         } else {
             return false;
@@ -24,17 +27,21 @@ async function ApiGetService(link, token) {
 async function ApiPostService(link, data) {
     let res;
     let url = "http://127.0.0.1:8000" + link;
-
+    let token = localStorage.getItem("token");
     console.log("Link to be sent: ", link);
 
     try {
-        res = await axios.post(url, data);
+        res = await axios.post(url, data, {
+            headers: {
+                Authorization: "Token " + token,
+            },
+        });
 
-        console.log("Full response: ", res.data);
+        // console.log("Full response: ", res.data);
 
         if (res.data.success) {
-            console.log("Data Posted!");
-            return res.data;
+            // console.log("Data Posted!");
+            return res.data.data;
         } else {
             console.log("Req is not completed. ", res.data.err);
             return res.data;
