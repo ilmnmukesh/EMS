@@ -31,11 +31,15 @@ async function ApiPostService(link, data) {
     console.log("Link to be sent: ", link);
 
     try {
-        res = await axios.post(url, data, {
-            headers: {
-                Authorization: "Token " + token,
-            },
-        });
+        if (link === "/api/auth/") {
+            res = await axios.post(url, data);
+        } else {
+            res = await axios.post(url, data, {
+                headers: {
+                    Authorization: "Token " + token,
+                },
+            });
+        }
 
         // console.log("Full response: ", res.data);
 
