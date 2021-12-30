@@ -3,8 +3,12 @@ import axios from "axios";
 async function ApiGetService(link) {
     let res;
     let url = "http://127.0.0.1:8000" + link;
-
-    let token = localStorage.getItem("token");
+    let token;
+    if (link.startsWith("/api/faculty/")) {
+        token = localStorage.getItem("Fac_token");
+    } else {
+        token = localStorage.getItem("token");
+    }
 
     try {
         res = await axios.get(url, {
@@ -31,7 +35,7 @@ async function ApiPostService(link, data) {
     console.log("Link to be sent: ", link);
 
     try {
-        if (link === "/api/auth/") {
+        if (link === "/api/auth/" || link === "/api/auth/faculty/") {
             res = await axios.post(url, data);
         } else {
             res = await axios.post(url, data, {

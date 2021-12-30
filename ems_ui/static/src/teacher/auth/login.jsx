@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { Col, Row, Form } from "react-bootstrap";
 import { FormControl, SubmitBtn, FormTag, Bred } from "./styled";
 import {
-    ToastContainer
-    // , toast 
+    ToastContainer,
+    // , toast
 } from "react-toastify";
 import { useHistory } from "react-router-dom";
-
+import { ApiPostService } from "../../api/api-services";
 
 const Login = ({ toggle }) => {
     let history = useHistory();
     // const [showModal, setShowModal] = useState(false);
 
-    const [data, setData] = useState({ rollno: "", password: "" });
+    const [data, setData] = useState({ faculty_no: "", password: "" });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -21,9 +21,15 @@ const Login = ({ toggle }) => {
             [name]: value,
         }));
     };
-    const login = () => {
-        history.push('/staff')
-    }
+    const login = async () => {
+        let res = await ApiPostService("/api/auth/faculty/", data);
+        if (res.valid) {
+            localStorage.setItem("Fac_token", res.token);
+            history.push("/staff");
+        } else {
+            setErr("Rollno or Password Incorrect");
+        }
+    };
 
     return (
         <>
@@ -32,12 +38,12 @@ const Login = ({ toggle }) => {
                 <Form.Group className="mb-3 mt-5" controlId="formBasicEmail">
                     <FormControl
                         className="px-3"
-                        type="number"
-                        placeholder=" Enter email"
+                        type="text"
+                        placeholder=" Enter faculty Number"
                         required
-                        value={data.rollno}
+                        value={data.faculty_no}
                         onChange={handleChange}
-                        name="email"
+                        name="faculty_no"
                     />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicPwd">
@@ -90,7 +96,6 @@ const Login = ({ toggle }) => {
                 draggable
                 pauseOnHover={false}
             />
-
         </>
     );
 };
