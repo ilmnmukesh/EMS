@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import Header from "./header";
 import { ApiGetService } from "../../api/api-services";
+import { Link, useHistory } from "react-router-dom";
 
 const ClassSection = () => {
+    const history = useHistory;
     const [ClassData, setClassData] = useState([]);
     useEffect(() => {
         const getClassData = async () => {
@@ -14,7 +16,12 @@ const ClassSection = () => {
     }, []);
     const ClassCard = ClassData.map((e) => (
         <Col lg={3} className="mx-5 mt-3 p-3" style={{ fontSize: "1.5em" }}>
-            <Card className="p-3">
+            <Card
+                className="p-3"
+                as={Link}
+                to={`update/${e.cl_id}`}
+                // onClick={() => history.push("/update")}
+            >
                 <Card.Title className="mx-3" style={{ fontSize: "1.8em" }}>
                     {e.course_name}
                 </Card.Title>

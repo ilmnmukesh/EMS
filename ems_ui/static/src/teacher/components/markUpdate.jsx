@@ -2,8 +2,27 @@ import React from "react";
 import { Breadcrumb, Button, Table } from "react-bootstrap";
 import Header from "./header";
 import { FaEdit, FaSave } from "react-icons/fa";
+import styled from "styled-components";
+
+const Input = styled.input`
+    width: 7rem;
+`;
 const MarkUpdate = () => {
     let sam = [...Array(38).keys()];
+    const [mark, setMark] = useState([])
+    useEffect(() => {
+        getMarks()
+    }, [])
+    async function getMarks(){
+
+    }
+    const onSave=async(e)=>{
+
+        // getMarks()
+    // let t=mark;
+    // t[i].e;
+    // setMarks(t)
+    }
     return (
         <>
             <Header current="mark" />
@@ -22,10 +41,12 @@ const MarkUpdate = () => {
                         <th>#</th>
                         <th>First Name</th>
                         <th>RollNo.</th>
-                        <th>Attendance(%)</th>
+                        <th>Att 1</th>
+                        <th>Att 2</th>
                         <th>Asses 1</th>
-                        <th>Assess 2</th>
-                        <th>End sem</th>
+                        <th>Asses 2</th>
+                        <th>Internal</th>
+                        <th>External</th>
                         <th>Total</th>
                     </tr>
                 </thead>
@@ -34,7 +55,7 @@ const MarkUpdate = () => {
                         <tr style={{ fontSize: "1em" }} key={e}>
                             <td>{e + 1}</td>
                             <td>Mark</td>
-                            <td>
+                            <td style={{ width: "1em" }}>
                                 20192020
                                 {String(e).length == 1
                                     ? e === 9
@@ -43,19 +64,25 @@ const MarkUpdate = () => {
                                     : eval(e + 1)}
                             </td>
                             <td>
-                                <input type="number" />
+                                <Input type="number" />
                             </td>
                             <td>
-                                <input type="number" />
+                                <Input type="number" />
                             </td>
                             <td>
-                                <input type="number" />
+                                <Input type="number" />
                             </td>
                             <td>
-                                <input type="number" />
+                                <Input type="number" />
+                            </td>
+                            <td>
+                                <Input type="number" />
+                            </td>
+                            <td>
+                                <Input type="number" />
                             </td>
                             <td>@total</td>
-                            <td>
+                            {/* <td>
                                 <Button
                                     variant="warning"
                                     style={{
@@ -66,7 +93,7 @@ const MarkUpdate = () => {
                                     Edit
                                     <FaEdit className="mx-2" />
                                 </Button>
-                            </td>
+                            </td> */}
                             <td>
                                 <Button
                                     variant="success"
