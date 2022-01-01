@@ -21,9 +21,9 @@ const Login = ({ toggle }) => {
     };
     const login = async () => {
         let res = await ApiPostService("/api/auth/", data);
-        console.log(res);
+        console.log(data);
         if (res.valid) {
-            localStorage.setItem("token", res.data.token);
+            localStorage.setItem("token", res.token);
             history.push("/studentHome");
         } else {
             setErr("Rollno or Password Incorrect");
