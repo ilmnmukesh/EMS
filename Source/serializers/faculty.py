@@ -63,7 +63,8 @@ class FacultyStudentSerializer(serializers.ModelSerializer):
         del super_data["std_id"]
         data = {
             "id": instance.id,
-            "rollno": instance.std_id.rollno,
+            "std_id": instance.std_id.rollno,
+            "sems": instance.cl_id.sems,
             "std_name": instance.std_id.std_name,
             **super_data
         }

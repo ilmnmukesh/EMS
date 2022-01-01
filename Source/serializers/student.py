@@ -9,7 +9,7 @@ class StudentSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         data = {
-            "rollno": instance.rollno,
+            "std_id": instance.rollno,
             "std_name": instance.std_name,
             "std_dob": instance.std_dob,
             "std_addr": instance.std_addr,
