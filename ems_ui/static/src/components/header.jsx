@@ -63,7 +63,7 @@ const Header = ({ current }) => {
                                     Examination Fee
                                 </Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link
                                     className={`nav-link scrollto ${
                                         current === "result" && "active"
@@ -72,7 +72,7 @@ const Header = ({ current }) => {
                                 >
                                     Academic Result
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
                                 <Link className="getstarted scrollto" to="/">
                                     Log out

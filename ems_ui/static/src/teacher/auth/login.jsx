@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row, Form } from "react-bootstrap";
 import { FormControl, SubmitBtn, FormTag, Bred } from "./styled";
 import {
@@ -23,11 +23,10 @@ const Login = ({ toggle }) => {
     };
     const login = async () => {
         let res = await ApiPostService("/api/auth/faculty/", data);
+        console.log(res);
         if (res.valid) {
             localStorage.setItem("Fac_token", res.token);
             history.push("/staff");
-        } else {
-            setErr("Rollno or Password Incorrect");
         }
     };
 

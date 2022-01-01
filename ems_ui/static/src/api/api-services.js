@@ -31,7 +31,12 @@ async function ApiGetService(link) {
 async function ApiPostService(link, data) {
     let res;
     let url = "http://127.0.0.1:8000" + link;
-    let token = localStorage.getItem("token");
+    let token;
+    if (link.startsWith("/api/faculty/")) {
+        token = localStorage.getItem("Fac_token");
+    } else {
+        token = localStorage.getItem("token");
+    }
     console.log("Link to be sent: ", link);
 
     try {
