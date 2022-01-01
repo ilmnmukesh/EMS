@@ -68,3 +68,9 @@ class FacultyStudentSerializer(serializers.ModelSerializer):
             **super_data
         }
         return data
+
+
+class FacultyStudentUpdateSerializer(serializers.Serializer):
+    cl_id = serializers.IntegerField()
+    session = serializers.IntegerField()
+    std_id = serializers.IntegerField()

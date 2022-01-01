@@ -33,9 +33,9 @@ def attend_class(request: Request, response: ApiResponse):
 @api_view(["GET"])
 @authentication_classes([FacultyTokenAuthentication])
 @api_response_decorator
-def view_class_student(request: Request, response: ApiResponse):
+def view_class_student(request: Request, response: ApiResponse, cl_id):
     query = models.StudentEnrollment.objects.filter(
-        cl_id__f_id=request.user.f_id).order_by("std_id__rollno")
+        cl_id__f_id=request.user.f_id, cl_id=cl_id).order_by("std_id__rollno")
     response.data = serializers.FacultyStudentSerializer(
         instance=query, many=True).data
     response.success = True
@@ -45,21 +45,49 @@ def view_class_student(request: Request, response: ApiResponse):
 @authentication_classes([FacultyTokenAuthentication])
 @api_response_decorator
 def update_class_student(request: Request, response: ApiResponse):
-
-    cl_id = request.data.get("cl_id")
-    ses = request.data.get("session")
-    f_id = request.user.f_id
-    try:
-        query = models.StudentEnrollment.objects.get(
-            cl_id__f_id=f_id, cl_id=cl_id, session=ses)
-    except models.StudentEnrollment.DoesNotExist:
-        response.errors = "Required minimal information, session and cl_id"
-        return
-    ser = serializers.StudentEnrollAllSerializer(query, request.data)
-
+    ser = serializers.FacultyStudentUpdateSerializer(data=request.data)
     if ser.is_valid():
-        ser.save()
-        response.data = ser.data
-        response.success = True
+        cl_id = ser.validated_data.get("cl_id")
+        ses = ser.validated_data.get("session")
+        std_id = ser.validated_data.get("std_id")
+        f_id = request.user.f_id
+        query = models.StudentEnrollment.objects.get(
+            cl_id__f_id=f_id, cl_id=cl_id, std_id=std_id, session=ses)
+        ser = serializers.StudentEnrollAllSerializer(query, request.data)
+        if ser.is_valid():
+            ser.save()
+            response.data = ser.data
+            response.success = True
+        else:
+            response.errors = ser.errors
     else:
         response.errors = ser.errors
+
+
+@api_view(["POST"])
+@authentication_classes([FacultyTokenAuthentication])
+@api_response_decorator
+def update_class_student_all(request: Request, response: ApiResponse):
+    response.errors = []
+    response.data = []
+    for data in request.data:
+        ser = serializers.FacultyStudentUpdateSerializer(data=data)
+        if ser.is_valid():
+            cl_id = ser.validated_data.get("cl_id")
+            ses = ser.validated_data.get("session")
+            std_id = ser.validated_data.get("std_id")
+            f_id = request.user.f_id
+            try:
+                query = models.StudentEnrollment.objects.get(
+                    cl_id__f_id=f_id, cl_id=cl_id, std_id=std_id, session=ses)
+                ser = serializers.StudentEnrollAllSerializer(query, data)
+                if ser.is_valid():
+                    ser.save()
+                    response.data.append(ser.data)
+                else:
+                    response.errors.append(ser.errors)
+            except models.StudentEnrollment.DoesNotExist:
+                response.errors.append(str(data) + " does not exits in enroll")
+        else:
+            response.errors.append(ser.errors)
+    response.success = True

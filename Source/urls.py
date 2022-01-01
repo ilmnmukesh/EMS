@@ -7,8 +7,9 @@ urlpatterns = [
 
     path("faculty/details/", faculty.details),
     path("faculty/class/", faculty.attend_class),
-    path("faculty/students/", faculty.view_class_student),
     path("faculty/students/update/", faculty.update_class_student),
+    path("faculty/students/<int:cl_id>/", faculty.view_class_student),
+    path("faculty/students/update/all/", faculty.update_class_student_all),
 
     path("dashboard/", dashboard.details),
     path("enroll/basic/", dashboard.basic_enrollment),
