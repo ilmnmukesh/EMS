@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view, authentication_classes
 from rest_framework.request import Request
 from Source.response import ApiResponse, api_response_decorator
 from Source import models, serializers
-
+from EMS.settings import ENABLE_BC
 # @api_view(['POST'])
 # @permission_classes([IsAuthenticated])
 # @api_response_decorator
@@ -55,7 +55,12 @@ def update_class_student(request: Request, response: ApiResponse):
             cl_id__f_id=f_id, cl_id=cl_id, std_id=std_id, session=ses)
         ser = serializers.StudentEnrollAllSerializer(query, request.data)
         if ser.is_valid():
-            ser.save()
+            obj = ser.save()
+            if ENABLE_BC:
+                from packages.blockchain import updateEnrollment
+                temp = obj.to_dict_bc()
+                py = updateEnrollment(temp)
+                print(py)
             response.data = ser.data
             response.success = True
         else:
@@ -82,7 +87,12 @@ def update_class_student_all(request: Request, response: ApiResponse):
                     cl_id__f_id=f_id, cl_id=cl_id, std_id=std_id, session=ses)
                 ser = serializers.StudentEnrollAllSerializer(query, data)
                 if ser.is_valid():
-                    ser.save()
+                    obj = ser.save()
+                    if ENABLE_BC:
+                        from packages.blockchain import updateEnrollment
+                        temp = obj.to_dict_bc()
+                        py = updateEnrollment(temp)
+                        print(py)
                     response.data.append(ser.data)
                 else:
                     response.errors.append(ser.errors)

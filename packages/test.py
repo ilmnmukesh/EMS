@@ -13,7 +13,7 @@ w3 = web3.Web3(web3.HTTPProvider("http://127.0.0.1:8545"))
 w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 me = w3.eth.get_accounts()[0]
 cntr: Contract = w3.eth.contract(
-    "0x84FfcA2a335D550bD40552c60F20a471000B7066", abi=abi["output"]["abi"])
+    "0xF19ee5A0BAFa82a9C65709B8b4556E0ab9F30fC1", abi=abi["output"]["abi"])
 
 
 def add(name, **val):

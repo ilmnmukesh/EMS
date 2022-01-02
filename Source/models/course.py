@@ -80,3 +80,18 @@ class StudentEnrollment(MainModel):
 
     class Meta:
         unique_together = ("std_id", "cl_id", "session")
+
+    def check_none(self, value):
+        return value if value else 0
+
+    def to_dict_bc(self):
+        data = {'std_id': int(self.std_id.rollno), 'cl_id': self.cl_id.cl_id,
+                'em': self.external_marks,
+                'im': self.internal_marks, 'att': self.attendance,
+                'att1': self.att_1, 'att2':  self.att_2, 'att3':  self.att_3,
+                'int1': self.int_1, 'int2': self.int_2, 'int3': self.int_3}
+
+        for x in data:
+            data[x] = self.check_none(data[x])
+
+        return data
