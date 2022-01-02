@@ -116,7 +116,7 @@ const Fee = () => {
                                                         name="regno"
                                                         placeholder="Regno"
                                                         id="regno"
-                                                        value={Stud?.rollno}
+                                                        value={Stud?.std_id}
                                                         readOnly
                                                     />
                                                 </div>
