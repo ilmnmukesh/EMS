@@ -21,13 +21,13 @@ const MarkUpdate = () => {
 
     const handleChange = (e, index) => {
         let { name, value } = e.target;
+        console.log(name);
         if (value.length > 1 && value[0] == 0) value = value.substring(1);
         if (parseInt(value) > 100) return;
         let temp = students;
-        temp[index][`${name}`] = value;
+        temp[index][`${name}`] = parseInt(value);
         setStudents([...temp]);
     };
-    // const [mark, setMark] = useState([]);
     useEffect(() => {
         const getStudents = async () => {
             let res = await ApiGetService(
@@ -37,16 +37,34 @@ const MarkUpdate = () => {
         };
         getStudents();
     }, []);
-    useEffect(() => {
-        console.log(students);
-    }, [students]);
-    async function getMarks() {}
+    function grade(m) {
+        return m >= 90
+            ? "O"
+            : m >= 80
+            ? "A+"
+            : m >= 70
+            ? "A"
+            : m >= 60
+            ? "B"
+            : m >= 50
+            ? "C"
+            : "RA";
+    }
     const onSave = async () => {
+        let data = students;
+        data.map((e, index) => {
+            let att = (parseInt(e.att_1) + parseInt(e.att_2)) / 2;
+            let ass = (parseInt(e.int_1) + parseInt(e.int_2)) / 2;
+            let internal = att / 10 + ass * 0.4;
+            let total = internal + parseInt(e.external_marks) / 2;
+            e.attendance = parseInt(att);
+            e.internal_marks = parseInt(internal);
+            e.grade = grade(total);
+        });
         let res = await ApiPostService(
             "/api/faculty/students/update/all/",
-            students
+            data
         );
-        console.log(res);
     };
     return (
         <>
@@ -77,10 +95,15 @@ const MarkUpdate = () => {
                 </thead>
                 <tbody>
                     {students.map((e, index) => {
-                        let att = (parseInt(e.att1) + parseInt(e.att2)) / 2;
-                        let ass = (parseInt(e.int1) + parseInt(e.int2)) / 2;
-                        let internal = att / 10 + ass * 0.4;
-                        let total = internal + parseInt(e.external_marks) / 2;
+                        let att = (parseInt(e.att_1) + parseInt(e.att_2)) / 2;
+                        let ass = (parseInt(e.int_1) + parseInt(e.int_2)) / 2;
+                        let internal = parseFloat(att / 10 + ass * 0.4).toFixed(
+                            2
+                        );
+                        let total = parseFloat(
+                            internal + parseInt(e.external_marks) / 2
+                        ).toFixed(2);
+
                         return (
                             <tr style={{ fontSize: "1em" }} key={e}>
                                 <td>{index + 1}</td>
@@ -125,7 +148,6 @@ const MarkUpdate = () => {
                                     <Input
                                         type="number"
                                         value={internal ? internal : 0}
-                                        max={100}
                                         name="internal_marks"
                                         readOnly
                                     />
@@ -162,7 +184,6 @@ const MarkUpdate = () => {
                         borderRadius: ".5em",
                         fontSize: "1.5em",
                         alignSelf: "center",
-                        // width: "",
                     }}
                     onClick={onSave}
                 >

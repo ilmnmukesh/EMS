@@ -33,6 +33,7 @@ const Mark = () => {
 
     useEffect(() => {
         const getSubList = async () => {
+            console.log(SessionID);
             let res = await ApiGetService("/api/enroll/get?ses=" + SessionID);
             setList(res);
         };
@@ -52,12 +53,10 @@ const Mark = () => {
             <td>{i.c_name}</td>
             <td>{i.att_1}</td>
             <td>{i.att_2}</td>
-            <td>{i.att_3}</td>
-            <td>{i.att_1 + i.att_2 + i.att_3 / 3}</td>
+            <td>{i.attendance}</td>
             <td>{i.int_1}</td>
             <td>{i.int_2}</td>
-            <td>{i.int_3}</td>
-            <td>{i.int_1 + i.int_2 + i.int_3 / 3}</td>
+            <td>{i.int_1 + i.int_2 / 2}</td>
             <td>{i.grade}</td>
         </tr>
     ));
@@ -123,7 +122,7 @@ const Mark = () => {
                                                 className="form-control input-sm"
                                                 name="rollno"
                                                 id="rollno"
-                                                value={Stud?.rollno}
+                                                value={Stud?.std_id}
                                                 readOnly
                                             />
                                         </div>
@@ -303,9 +302,6 @@ const Mark = () => {
                                                                         Att. 2
                                                                     </th>
                                                                     <th className="cell-21">
-                                                                        Att. 3
-                                                                    </th>
-                                                                    <th className="cell-21">
                                                                         Att.(%)
                                                                     </th>
                                                                     <th className="cell-28">
@@ -315,10 +311,6 @@ const Mark = () => {
                                                                     <th className="cell-28">
                                                                         Assess.
                                                                         2
-                                                                    </th>
-                                                                    <th className="cell-28">
-                                                                        Assess.
-                                                                        3
                                                                     </th>
                                                                     <th className="cell-28">
                                                                         I.

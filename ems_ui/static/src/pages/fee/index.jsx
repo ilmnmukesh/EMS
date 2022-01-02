@@ -3,9 +3,8 @@ import { ApiGetService, ApiPostService } from "../../api/api-services";
 import Header from "../../components/header";
 const Fee = () => {
     const [Session, setSession] = useState([]);
-    const [Department, setDepartment] = useState([]);
     const [Branch, setBranch] = useState([]);
-    const [data, setData] = useState({ session_id: 5, br_id: 1 });
+    const [data, setData] = useState({ session_id: 0, br_id: 0 });
     const [List, setList] = useState([]);
     const [total, setTotal] = useState(0);
     const [Stud, setStud] = useState({});
@@ -14,7 +13,6 @@ const Fee = () => {
         const getSession = async () => {
             let res = await ApiGetService("/api/enroll/basic/");
             setSession(res.session);
-            setDepartment(res.department);
         };
         const getBranch = async () => {
             let res = await ApiGetService("/api/branch/get/1/");
@@ -22,24 +20,12 @@ const Fee = () => {
         };
         const getStudID = async () => {
             let res = await ApiGetService("/api/student/details/");
-
-            // console.log(res);
             setStud(res);
         };
-        const getList = async () => {
-            let res = await ApiPostService("/api/fee/details/", data);
-            setList(res);
-            // let tot = 0;
-            // List.forEach(
-            //     (e) => console.log(e.amount)
-            //     // setTotal((item) => item + parseInt(e.amount))
-            // );
-            // console.log(total);
-        };
+
         getStudID();
         getSession();
         getBranch();
-        getList();
     }, []);
     useEffect(() => {
         const gettotal = () => {
@@ -52,6 +38,22 @@ const Fee = () => {
         };
         gettotal();
     }, [List]);
+    useEffect(() => {
+        console.log(data);
+        const getList = async () => {
+            let res = await ApiPostService("/api/fee/details/", data);
+            setList(res);
+        };
+        getList();
+    }, [data]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setData((prevState) => ({
+            ...prevState,
+            [name]: Number(value),
+        }));
+    };
 
     const list = List.map((i, index) => (
         <tr key={index}>
@@ -64,6 +66,19 @@ const Fee = () => {
             </td>
         </tr>
     ));
+
+    const sess = Session.map((i) => (
+        <option key={i.id} value={i.id}>
+            {i.value}
+        </option>
+    ));
+
+    const brnch = Branch.map((i) => (
+        <option key={i.br_id} value={i.br_id}>
+            {i.br_name}
+        </option>
+    ));
+
     return (
         <>
             <Header current="fee" />
@@ -131,14 +146,21 @@ const Fee = () => {
                                                     Branch
                                                 </label>
                                                 <div className="col-md-5">
-                                                    <input
-                                                        type="text"
+                                                    <select
                                                         className="form-control input-sm"
-                                                        placeholder="Branch"
+                                                        name="br_id"
                                                         id="branch"
-                                                        value={Stud?.branch}
-                                                        readOnly
-                                                    />
+                                                        onChange={handleChange}
+                                                    >
+                                                        <option
+                                                            value={""}
+                                                            // disabled
+                                                        >
+                                                            {" "}
+                                                            Select Branch
+                                                        </option>
+                                                        {brnch}
+                                                    </select>
                                                 </div>
                                                 <label
                                                     className="control-label col-md-1"
@@ -197,7 +219,7 @@ const Fee = () => {
                                                     Session
                                                 </label>
                                                 <div className="col-md-5">
-                                                    <input
+                                                    {/* <input
                                                         type="text"
                                                         className="form-control input-sm"
                                                         name="sessions"
@@ -205,7 +227,19 @@ const Fee = () => {
                                                         placeholder="Exam Session"
                                                         value="April / May - 2021"
                                                         disabled
-                                                    />
+                                                    /> */}
+                                                    <select
+                                                        className="form-control h2"
+                                                        name="session_id"
+                                                        id="sessions"
+                                                        onChange={handleChange}
+                                                    >
+                                                        <option value={""}>
+                                                            {" "}
+                                                            Select Session
+                                                        </option>
+                                                        {sess}
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div className="form-group">
