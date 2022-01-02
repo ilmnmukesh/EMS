@@ -31,7 +31,6 @@ const Enrollment = () => {
         };
         const getStudID = async () => {
             let res = await ApiGetService("/api/student/details/");
-            // console.log(res);
             setStud(res);
         };
         getStudID();
@@ -40,7 +39,6 @@ const Enrollment = () => {
     }, []);
 
     useEffect(() => {
-        // console.log(data);
         const getSubList = async () => {
             let res = await ApiPostService("/api/enroll/list/", data);
             setList(res);

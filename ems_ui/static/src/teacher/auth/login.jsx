@@ -3,14 +3,12 @@ import { Col, Row, Form } from "react-bootstrap";
 import { FormControl, SubmitBtn, FormTag, Bred } from "./styled";
 import {
     ToastContainer,
-    // , toast
 } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { ApiPostService } from "../../api/api-services";
 
 const Login = ({ toggle }) => {
     let history = useHistory();
-    // const [showModal, setShowModal] = useState(false);
 
     const [data, setData] = useState({ faculty_no: "", password: "" });
 
@@ -23,7 +21,6 @@ const Login = ({ toggle }) => {
     };
     const login = async () => {
         let res = await ApiPostService("/api/auth/faculty/", data);
-        console.log(res);
         if (res.valid) {
             localStorage.setItem("Fac_token", res.token);
             history.push("/staff");
