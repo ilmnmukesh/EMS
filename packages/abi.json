@@ -9,6 +9,92 @@
                 "inputs": [
                     {
                         "internalType": "uint256",
+                        "name": "std_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "cl_id",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "addEnrollment",
+                "outputs": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "std_id",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "cl_id",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "enum SemsGrade",
+                                "name": "grade",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "external_mark",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "internal_mark",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "attendence",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "att1",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "att2",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "att3",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "int_1",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "int_2",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "int_3",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct StudentEnrollment",
+                        "name": "",
+                        "type": "tuple"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
                         "name": "",
                         "type": "uint256"
                     }
@@ -599,6 +685,137 @@
                 ],
                 "stateMutability": "view",
                 "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "uint256",
+                        "name": "std_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "cl_id",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "em",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "im",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "int1",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "int2",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "int3",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "att",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "att1",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "att2",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "att3",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "updateEnrollment",
+                "outputs": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "std_id",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "cl_id",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "enum SemsGrade",
+                                "name": "grade",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "external_mark",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "internal_mark",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "attendence",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "att1",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "att2",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "att3",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "int_1",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "int_2",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "int_3",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct StudentEnrollment",
+                        "name": "",
+                        "type": "tuple"
+                    }
+                ],
+                "stateMutability": "nonpayable",
+                "type": "function"
             }
         ],
         "devdoc": {
@@ -629,11 +846,11 @@
     },
     "sources": {
         "contracts/EMS/index.sol": {
-            "keccak256": "0x6e2851a8eed95d1a1df64e993473f8d22d73eea4ad8f100094610925e32a7829",
+            "keccak256": "0x8e5197bebb1bb0143a8bd82dd14f592109ada3dbb3bc878a35d1c7ba872074e1",
             "license": "GPL-3.0",
             "urls": [
-                "bzz-raw://3c840553ce77c35d7773d18e241576a607fb2a935c96cb4b3e4acb80b4bb287e",
-                "dweb:/ipfs/QmSGk7y9JpRiJk1fGfwKLKCadh3K88A6LAnGPup87SuDQ5"
+                "bzz-raw://c9980e6ef258ac52c7b4b53b65fa05ba6c5b94f8586c456fd572eecc6bdda43e",
+                "dweb:/ipfs/QmeQej6cgfd5Jm86EvNTGcLqMWh6xQVRbEsYwPKG5hW1c3"
             ]
         },
         "contracts/EMS/struct.sol": {
