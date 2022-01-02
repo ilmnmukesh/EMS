@@ -12,7 +12,11 @@ const StaffRoutes = () => {
                 <Route exact path="/profile" component={Profile} />
                 <Route path="/class" component={ClassSection} />
                 {/* <Route path="/update" component={MarkUpdate} /> */}
-                <Route exact path="/update/:cl_id" component={MarkUpdate} />
+                <Route
+                    exact
+                    path="/update/:cl_id/:cl_name"
+                    component={MarkUpdate}
+                />
             </Switch>
         </BrowserRouter>
     );

@@ -15,8 +15,9 @@ const Input = styled.input`
     }
 `;
 const MarkUpdate = () => {
-    const { pathname } = useLocation();
-    const cl_id = pathname.substring(pathname.lastIndexOf("/") + 1);
+    const str = window.location.href.split("/");
+    const cl_name = decodeURI(str[str.length - 1]);
+    const cl_id = parseInt(str[str.length - 2]);
     const [students, setStudents] = useState([]);
 
     const handleChange = (e, index) => {
@@ -78,6 +79,7 @@ const MarkUpdate = () => {
                     </Breadcrumb.Item>
                 </Breadcrumb>
             </div>
+            <h2 style={{ textAlign: "center", width: "100%" }}>{cl_name}</h2>
             <Table striped bordered hover>
                 <thead style={{ fontSize: "1em" }}>
                     <tr>

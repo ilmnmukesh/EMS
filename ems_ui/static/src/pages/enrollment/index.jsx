@@ -108,7 +108,7 @@ const Enrollment = () => {
         <>
             <Header current="enroll" />
             <div className="container-fluid" style={{ marginTop: "10em" }}>
-                <div className="content-wrapper">
+                <div className="content-wrapper" style={{ marginLeft: "0px" }}>
                     <section className="content-header">
                         <p className="h1">
                             Timetable Slot and Staff Information
@@ -159,7 +159,10 @@ const Enrollment = () => {
                                             method="post"
                                             acceptCharset="utf-8"
                                         >
-                                            <table className="table table-bordered table-hover">
+                                            <table
+                                                className="table table-bordered table-hover"
+                                                style={{ width: "100%" }}
+                                            >
                                                 <thead>
                                                     <tr>
                                                         <th className="h3">
@@ -205,9 +208,6 @@ const Enrollment = () => {
                                                 <thead>
                                                     <tr>
                                                         <th className="h3">
-                                                            PRGM
-                                                        </th>
-                                                        <th className="h3">
                                                             Branch
                                                         </th>
                                                         <th className="h3">
@@ -216,17 +216,11 @@ const Enrollment = () => {
                                                         <th className="h3">
                                                             Regulation
                                                         </th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>
-                                                            <select
-                                                                className="form-control input-sm"
-                                                                name="prgm"
-                                                                id="prgm"
-                                                            ></select>
-                                                        </td>
                                                         <td>
                                                             <select
                                                                 className="form-control input-sm"
@@ -282,6 +276,7 @@ const Enrollment = () => {
                                                                 </option>
                                                             </select>
                                                         </td>
+                                                        <td></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
