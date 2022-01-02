@@ -78,4 +78,28 @@ contract EMS is EMS_Create {
         id = students[std_id].std_id;
         pwd = students[std_id].pwd;
     }
+
+    function addEnrollment(uint std_id, uint cl_id ) public returns(StudentEnrollment memory) {
+        studentenrollments[std_id+cl_id] = StudentEnrollment(std_id, cl_id,SemsGrade.NA, 0, 0, 0, 0, 0, 0, 0, 0,0);
+        return studentenrollments[std_id+cl_id];
+    }
+
+    function updateEnrollment(uint std_id,
+        uint cl_id, 
+        uint em, uint im, uint int1,uint int2,
+        uint int3, uint att, uint att1, uint att2, 
+    uint att3 ) public returns(StudentEnrollment memory) {
+        std_id+= cl_id;
+        studentenrollments[std_id].external_mark= em;
+        studentenrollments[std_id].internal_mark= im;
+        studentenrollments[std_id].attendence= att;
+        studentenrollments[std_id].att1= att1;
+        studentenrollments[std_id].att2= att2;
+        studentenrollments[std_id].att3= att3;
+        studentenrollments[std_id].int_1= int1;
+        studentenrollments[std_id].int_2= int2;
+        studentenrollments[std_id].int_3= int3;
+        
+        return studentenrollments[std_id];
+    }
 }
