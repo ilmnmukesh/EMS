@@ -68,7 +68,7 @@ const Enrollment = () => {
             <td>{i.f_designation}</td>
             <td>{i.dep_name}</td>
             <td>
-                <Button onClick={() => addItem(i.c_id)}> add</Button>
+                <Button onClick={() => addItem(i.c_id)}> ADD</Button>
             </td>
         </tr>
     ));
