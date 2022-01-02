@@ -48,7 +48,7 @@ const Enrollment = () => {
 
     function addItem(cl_id) {
         const data = {
-            std_id: Number(Stud.rollno),
+            std_id: Number(Stud.std_id),
             cl_id: Number(cl_id),
             regulation: 3,
             session: Number(SessionID),
