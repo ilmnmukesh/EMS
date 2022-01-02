@@ -50,7 +50,7 @@ function Header({ current }) {
                                 className={`nav-link scrollto ${
                                     current === "mark" && "active"
                                 }`}
-                                to="/staff/update"
+                                to="/staff/update/1"
                             >
                                 View & Update marks
                             </Link>

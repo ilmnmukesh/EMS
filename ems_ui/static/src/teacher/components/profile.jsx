@@ -26,21 +26,6 @@ const Profile = () => {
                         <h1>{details?.f_name} </h1>
                     </Col>
                     <Col className="mt-5">
-                        <h1>Contact Information</h1>
-                        <div className="mt-5">
-                            <b style={{ width: "4em" }}>Email :</b>
-                            <span className="h4 mx-5">
-                                deVillers@annauniv.edu
-                            </span>
-                        </div>
-                        <div className="mt-5">
-                            <b style={{ width: "4em" }}>Phone no. :</b>
-                            <span className="h4 mx-5">044-23456789</span>
-                        </div>
-                        <div className="mt-5">
-                            <b style={{ width: "4em" }}>Mobile :</b>
-                            <span className="h4 mx-5">9874561230</span>
-                        </div>
                         <h1 className="mt-5">Staff information</h1>
                         <div className="mt-5">
                             <b style={{ width: "4em" }}>Designation :</b>

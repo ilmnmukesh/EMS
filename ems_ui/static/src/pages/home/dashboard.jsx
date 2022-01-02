@@ -58,7 +58,10 @@ const Dashboard = () => {
         <>
             <div className="hold-transition skin-blue sidebar-mini sidebar-collapse">
                 <div>
-                    <section className="content">
+                    <section
+                        className="content"
+                        style={{ marginRight: "-22rem" }}
+                    >
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="box box-primary">
@@ -163,48 +166,6 @@ const Dashboard = () => {
                                             </thead>
                                             <tbody>{MockCircular}</tbody>
                                         </table>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="col-md-12">
-                                <div className="box box-primary">
-                                    <div className="box-header with-border">
-                                        <h3 className="box-title">Timetable</h3>
-                                        <div className="box-tools pull-right">
-                                            <button
-                                                className="btn btn-box-tool"
-                                                data-widget="collapse"
-                                            >
-                                                <i className="fa fa-minus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="box-body no-padding">
-                                        <table className="table table-bordered table-condensed">
-                                            <thead>
-                                                <tr>
-                                                    <th>Day / Hour</th>
-                                                    <th>1</th>
-                                                    <th>2</th>
-                                                    <th>3</th>
-                                                    <th>4</th>
-                                                    <th>5</th>
-                                                    <th>6</th>
-                                                    <th>7</th>
-                                                    <th>8</th>
-                                                    <th>9</th>
-                                                    <th>10</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tt"></tbody>
-                                        </table>
-                                        <input
-                                            type="hidden"
-                                            name="sessions"
-                                            id="sessions"
-                                            value="KlHS1Jgagai4M%3EujUG%3EG5cKDZuxoO8GEhxkEnSCAAriwkE6k2%2BZcohCfFnZ1U83B2ztMqr2e%3E679N9ul32353g%3D%3D"
-                                        />
                                     </div>
                                 </div>
                             </div>

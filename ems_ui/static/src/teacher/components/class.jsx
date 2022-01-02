@@ -16,7 +16,11 @@ const ClassSection = () => {
     }, []);
     const ClassCard = ClassData.map((e) => (
         <Col lg={3} className="mx-5 mt-3 p-3" style={{ fontSize: "1.5em" }}>
-            <Card className="p-3" as={Link} to={`update/${e.cl_id}`}>
+            <Card
+                className="p-3"
+                as={Link}
+                to={`update/${e.cl_id}/${e.course_name}`}
+            >
                 <Card.Title className="mx-3" style={{ fontSize: "1.8em" }}>
                     {e.course_name}
                 </Card.Title>
