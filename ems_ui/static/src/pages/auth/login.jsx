@@ -56,7 +56,7 @@ const Login = ({ toggle }) => {
                         autoComplete="off"
                     />
                 </Form.Group>
-                <Row>
+                {/* <Row>
                     <Col>
                         <Form.Check
                             type="checkbox"
@@ -65,7 +65,7 @@ const Login = ({ toggle }) => {
                         />
                     </Col>
                     <Col>Forgot Password</Col>
-                </Row>
+                </Row> */}
                 <SubmitBtn
                     className="form-control mt-4"
                     onClick={login}
