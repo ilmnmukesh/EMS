@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Form } from "react-bootstrap";
 import { FormControl, SubmitBtn, FormTag, Bred } from "./styled";
-import {
-    ToastContainer,
-} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { ApiPostService } from "../../api/api-services";
 
@@ -53,7 +51,7 @@ const Login = ({ toggle }) => {
                         autoComplete="off"
                     />
                 </Form.Group>
-                <Row>
+                {/* <Row>
                     <Col>
                         <Form.Check
                             type="checkbox"
@@ -62,7 +60,7 @@ const Login = ({ toggle }) => {
                         />
                     </Col>
                     <Col>Forgot Password</Col>
-                </Row>
+                </Row> */}
                 <SubmitBtn
                     className="form-control mt-4"
                     onClick={login}

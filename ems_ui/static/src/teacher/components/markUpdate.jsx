@@ -110,7 +110,7 @@ const MarkUpdate = () => {
                             <tr style={{ fontSize: "1em" }} key={e}>
                                 <td>{index + 1}</td>
                                 <td>{e.std_name}</td>
-                                <td style={{ width: "1em" }}>{e.rollno}</td>
+                                <td style={{ width: "1em" }}>{e.std_id}</td>
                                 <td>
                                     <Input
                                         type="number"
